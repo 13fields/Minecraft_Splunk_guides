@@ -274,6 +274,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#installing-the-splunk-bukkit-plugin" class="md-nav__link">
+    Installing the Splunk Bukkit Plugin
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -464,6 +471,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#installing-the-splunk-bukkit-plugin" class="md-nav__link">
+    Installing the Splunk Bukkit Plugin
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -484,6 +498,40 @@
 <p>First and foremost, we need to setup Docker. We recommend following the already detailed guides on deploying Docker found on <a href="https://docs.docker.com/get-started/">Docker Docs</a> as a great introduction to the subject. </p>
 <p>If you already have a minecraft server running Spigot then you can skip this section and jump straight into the <a href="">Splunk App Setup</a> or Download the Splunk App from <a href="">Splunkbase</a> and get right into it!</p>
 <h2 id="docker-image-basics">Docker Image Basics</h2>
+<p>The base Docker image is based on the <a href="https://hub.docker.com/r/ashdev/docker-spigot">Ashdev Docker Spigot</a> image. This image allows us to, essentially, unpack and build the version of Spigot / Bukkit we want for the Minecraft Addon. The code has been tested as working on Minecraft version 1.12.x - 1.16.3 once compiled against the correct library version. </p>
+<p>Utiling the below dockerfile yml template we can define a starting framework for the Docker deployment including port mapping for Client Access, persistence of the volumes and IP management. </p>
+<pre><code class="YAML">version: &quot;3&quot;
+
+services:
+  minecraft-java:
+    hostname: minecraft-java
+    image: ashdev/docker-spigot:latest
+    env_file: /var/data/config/minecraft-java/minecraft-java.env
+    volumes:
+        - /var/data/minecraft-java:/minecraft
+    deploy:
+    networks:
+      - public
+      - internal
+    ports:
+      - &quot;25565:25565&quot;
+      - &quot;25565:25565/udp&quot;
+      - &quot;1390:1390&quot;
+
+networks:
+  public:
+    external: true
+  internal:
+    driver: overlay
+    ipam:
+      config:
+        - subnet: 10.0.42.0/24
+</code></pre>
+
+<p>Persisting the volume is required for our logging and our Splunk data collection to work effectively. Logs will be writted to the <em>minecraft-java/logs/event.log</em> file.</p>
+<h2 id="installing-the-splunk-bukkit-plugin">Installing the Splunk Bukkit Plugin</h2>
+<p>With your persisted volume defined; we can pre-locate the appropriate plugin version into a <em>plugins</em> folder pre-created in this located as the packaged .jar file. On startup; the docker image will deploy spigot structure and unpack the jar file.</p>
+<p>Builds of the Plugin can be found on <a href="">13Fields Github</a> for each of the Minecraft versions</p>
                 
               
               

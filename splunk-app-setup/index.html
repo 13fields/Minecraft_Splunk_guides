@@ -50,7 +50,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#welcome-to-mkdocs" class="md-skip">
+        <a href="#splunk-application-and-data-onboarding" class="md-skip">
           Skip to content
         </a>
       
@@ -280,15 +280,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#commands" class="md-nav__link">
-    Commands
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
-    Project layout
+  <a href="#splunk-inputs" class="md-nav__link">
+    Splunk Inputs
   </a>
   
 </li>
@@ -465,15 +458,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#commands" class="md-nav__link">
-    Commands
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
-    Project layout
+  <a href="#splunk-inputs" class="md-nav__link">
+    Splunk Inputs
   </a>
   
 </li>
@@ -494,20 +480,29 @@
                   
                 
                 
-                <h1 id="welcome-to-mkdocs">Welcome to MkDocs</h1>
-<p>For full documentation visit <a href="https://www.mkdocs.org">mkdocs.org</a>.</p>
-<h2 id="commands">Commands</h2>
-<ul>
-<li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
-<li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
-<li><code>mkdocs build</code> - Build the documentation site.</li>
-<li><code>mkdocs -h</code> - Print help message and exit.</li>
-</ul>
-<h2 id="project-layout">Project layout</h2>
-<pre><code>mkdocs.yml    # The configuration file.
-docs/
-    index.md  # The documentation homepage.
-    ...       # Other markdown pages, images and other files.
+                <h1 id="splunk-application-and-data-onboarding">Splunk Application and Data Onboarding</h1>
+<p>With our Minecraft Server deployed into Docker, or a Server, setup with the SplunkBukkit plugins we will now we getting a events.log file out with JSON based messages for easy ingest into Splunk. </p>
+<pre><code class="JSON">{&quot;time&quot;:&quot;2020-9-25 19:11:07 &quot;,&quot;event&quot;:{&quot;mob&quot;:&quot;Phantom&quot;,&quot;action&quot;:&quot;deal damage&quot;,&quot;message&quot;:&quot;well... PlayerOne had enough of that&quot;,&quot;health&quot;:&quot;7.016000747680664&quot;,&quot;damage_taken&quot;:&quot;2.423999786376953&quot;,&quot;target&quot;:&quot;FaithyMcD&quot;,&quot;weapon&quot;:&quot;null&quot;,&quot;type&quot;:&quot;damage&quot;,&quot;location&quot;:{&quot;biome&quot;:&quot;STONE_S
+HORE&quot;,&quot;x&quot;:&quot;-134.97914559838472&quot;,&quot;y&quot;:&quot;70.0&quot;,&quot;z&quot;:&quot;356.8258508968549&quot;}}}
+{&quot;time&quot;:&quot;2020-9-25 19:11:07 &quot;,&quot;event&quot;:{&quot;player&quot;:&quot;PlayerOne&quot;,&quot;action&quot;:&quot;take damage&quot;,&quot;message&quot;:&quot;took a blow from Phantom but is still standing&quot;,&quot;health&quot;:&quot;7.016000747680664&quot;,&quot;damage_taken&quot;:&quot;2.423999786376953&quot;,&quot;cause&quot;:&quot;Phantom&quot;,&quot;type&quot;:&quot;damage&quot;,&quot;location&quot;:{&quot;biome&quot;:&quot;STONE_SHORE
+&quot;,&quot;x&quot;:&quot;-134.97914559838472&quot;,&quot;y&quot;:&quot;70.0&quot;,&quot;z&quot;:&quot;356.8258508968549&quot;}}}
+{&quot;time&quot;:&quot;2020-9-25 19:11:32 &quot;,&quot;event&quot;:{&quot;player&quot;:&quot;PlayerOne&quot;,&quot;action&quot;:&quot;unknown&quot;,&quot;level&quot;:&quot;3&quot;,&quot;experience&quot;:&quot;0.92307705&quot;,&quot;gamemode&quot;:&quot;SURVIVAL&quot;,&quot;hunger&quot;:&quot;13&quot;,&quot;health&quot;:&quot;4.592000961303711&quot;,&quot;weather&quot;:&quot;null&quot;,&quot;equiptment&quot;:{&quot;main_hand&quot;:&quot;STONE_AXE&quot;,&quot;off_hand&quot;:&quot;AIR&quot;,&quot;helmet&quot;:&quot;none&quot;,&quot;c
+hest&quot;:&quot;none&quot;,&quot;leggings&quot;:&quot;DIAMOND_LEGGINGS&quot;,&quot;boots&quot;:&quot;none&quot;},&quot;type&quot;:&quot;status&quot;,&quot;location&quot;:{&quot;biome&quot;:&quot;STONE_SHORE&quot;,&quot;x&quot;:&quot;-133.8382096321811&quot;,&quot;y&quot;:&quot;69.0&quot;,&quot;z&quot;:&quot;356.7367333350036&quot;}}}
+{&quot;time&quot;:&quot;2020-9-25 19:11:32 &quot;,&quot;event&quot;:{&quot;player&quot;:&quot;PlayerThree&quot;,&quot;action&quot;:&quot;unknown&quot;,&quot;level&quot;:&quot;0&quot;,&quot;experience&quot;:&quot;0.71428573&quot;,&quot;gamemode&quot;:&quot;SURVIVAL&quot;,&quot;hunger&quot;:&quot;20&quot;,&quot;health&quot;:&quot;20.0&quot;,&quot;weather&quot;:&quot;null&quot;,&quot;equiptment&quot;:{&quot;main_hand&quot;:&quot;WOOD&quot;,&quot;off_hand&quot;:&quot;COAL&quot;,&quot;helmet&quot;:&quot;none&quot;,&quot;chest&quot;:&quot;DIAMOND
+_CHESTPLATE&quot;,&quot;leggings&quot;:&quot;none&quot;,&quot;boots&quot;:&quot;none&quot;},&quot;type&quot;:&quot;status&quot;,&quot;location&quot;:{&quot;biome&quot;:&quot;MOUNTAINS&quot;,&quot;x&quot;:&quot;-137.78720402791043&quot;,&quot;y&quot;:&quot;68.0&quot;,&quot;z&quot;:&quot;339.69999998807907&quot;}}}
+{&quot;time&quot;:&quot;2020-9-25 19:11:32 &quot;,&quot;event&quot;:{&quot;player&quot;:&quot;Guitaraholic&quot;,&quot;action&quot;:&quot;unknown&quot;,&quot;level&quot;:&quot;6&quot;,&quot;experience&quot;:&quot;0.36842123&quot;,&quot;gamemode&quot;:&quot;SURVIVAL&quot;,&quot;hunger&quot;:&quot;16&quot;,&quot;health&quot;:&quot;11.31534194946289&quot;,&quot;weather&quot;:&quot;null&quot;,&quot;equiptment&quot;:{&quot;main_hand&quot;:&quot;STONE_SWORD&quot;,&quot;off_hand&quot;:&quot;TORCH&quot;,&quot;helmet&quot;:&quot;D
+IAMOND_HELMET&quot;,&quot;chest&quot;:&quot;none&quot;,&quot;leggings&quot;:&quot;none&quot;,&quot;boots&quot;:&quot;DIAMOND_BOOTS&quot;},&quot;type&quot;:&quot;status&quot;,&quot;location&quot;:{&quot;biome&quot;:&quot;STONE_SHORE&quot;,&quot;x&quot;:&quot;-137.24046018796153&quot;,&quot;y&quot;:&quot;69.0&quot;,&quot;z&quot;:&quot;357.7457953917562&quot;}}}
+{&quot;time&quot;:&quot;2020-9-25 19:11:32 &quot;,&quot;event&quot;:{&quot;player&quot;:&quot;PlayerOne&quot;,&quot;action&quot;:&quot;unknown&quot;,&quot;level&quot;:&quot;3&quot;,&quot;experience&quot;:&quot;0.92307705&quot;,&quot;gamemode&quot;:&quot;SURVIVAL&quot;,&quot;hunger&quot;:&quot;13&quot;,&quot;health&quot;:&quot;4.592000961303711&quot;,&quot;weather&quot;:&quot;null&quot;,&quot;equiptment&quot;:{&quot;main_hand&quot;:&quot;STONE_AXE&quot;,&quot;off_hand&quot;:&quot;AIR&quot;,&quot;helmet&quot;:&quot;none&quot;,&quot;c
+hest&quot;:&quot;none&quot;,&quot;leggings&quot;:&quot;DIAMOND_LEGGINGS&quot;,&quot;boots&quot;:&quot;none&quot;},&quot;type&quot;:&quot;status&quot;,&quot;location&quot;:{&quot;biome&quot;:&quot;STONE_SHORE&quot;,&quot;x&quot;:&quot;-135.65082541716805&quot;,&quot;y&quot;:&quot;69.0&quot;,&quot;z&quot;:&quot;354.8847251217087&quot;}}}
+</code></pre>
+
+<h2 id="splunk-inputs">Splunk Inputs</h2>
+<p>The log file can easily be ingested into Splunk through a universal forwarder ( deployed on the host or in another Docker container ) to collect the log file with a simple stanza </p>
+<pre><code class="Splunk">[monitor:///minecraft-java/logs/events.log]
+disabled = 0
+index = minecraft
+sourcetype = minecraft:events
+host = minecraft:java
 </code></pre>
                 
               
