@@ -50,7 +50,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#welcome-to-mkdocs" class="md-skip">
+        <a href="#hunted-playing-hide-seek" class="md-skip">
           Skip to content
         </a>
       
@@ -342,15 +342,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#commands" class="md-nav__link">
-    Commands
+  <a href="#scenario-outline" class="md-nav__link">
+    Scenario Outline
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
-    Project layout
+  <a href="#scenario-rules" class="md-nav__link">
+    Scenario Rules
   </a>
   
 </li>
@@ -465,15 +465,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#commands" class="md-nav__link">
-    Commands
+  <a href="#scenario-outline" class="md-nav__link">
+    Scenario Outline
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
-    Project layout
+  <a href="#scenario-rules" class="md-nav__link">
+    Scenario Rules
   </a>
   
 </li>
@@ -494,21 +494,56 @@
                   
                 
                 
-                <h1 id="welcome-to-mkdocs">Welcome to MkDocs</h1>
-<p>For full documentation visit <a href="https://www.mkdocs.org">mkdocs.org</a>.</p>
-<h2 id="commands">Commands</h2>
-<ul>
-<li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
-<li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
-<li><code>mkdocs build</code> - Build the documentation site.</li>
-<li><code>mkdocs -h</code> - Print help message and exit.</li>
-</ul>
-<h2 id="project-layout">Project layout</h2>
-<pre><code>mkdocs.yml    # The configuration file.
-docs/
-    index.md  # The documentation homepage.
-    ...       # Other markdown pages, images and other files.
+                <h1 id="hunted-playing-hide-seek">Hunted: Playing Hide &amp; Seek</h1>
+<p>The Hunted: hide &amp; Seek scenario is useful to demonstrate the value and importance of user data; tracking and being aware of how your movement can easily be tracked through mediums such as GPS, Social Media, and other tools and used against you. The value and importance of locations tracking data can be applied to CyberSecurity through mediums such as door access control, company equiptment, and more. Tracing user behaviour is a common application of Machine Learning for outlier detection. </p>
+<p>When hackers 'attack' at business they will likely track down a number of individuals or targets they feel can assist or escalate their priviledge to achieve their goal. Defenders also need to leverage User behaviour tracking capabiities for detection of malicious behaviour, outliers and potential insider threat scenarios. </p>
+<p>This scenario allows a game of hide and seek through the use of Splunk data and a simple dashboard to track where players are in the game world and <em>phish</em> them out.</p>
+<h2 id="scenario-outline">Scenario Outline</h2>
+<p>Leverages the 'status' event.type from the Splunk logs as the basis of the dashboard. These events provide 30 second polls to help us 'track' the players down.</p>
+<pre><code class="JSON">{
+   event: {
+     action: unknown
+     equiptment: {
+     }
+     experience: 0.26666662
+     gamemode: SURVIVAL
+     health: 20.0
+     hunger: 20
+     level: 4
+     location: {
+       biome: STONE_SHORE
+       x: -128.69999998807904
+       y: 69.0
+       z: 359.15860918726287
+     }
+     player: Guitaraholic
+     type: status
+     weather: null
+   }
+   time: 2020-9-25 21:08:14
+}
 </code></pre>
+
+<p>We can utilise these polls to discover information about the hunted's location, current equiptment and health / hunger status to help track them down.</p>
+<p>Additional contect is provided on the dashboard to show relative location and direction for the Hunter to the Hunted targets to assist in direction of travel. </p>
+<h2 id="scenario-rules">Scenario Rules</h2>
+<ul>
+<li>
+<p>Any player who stays in one spot within the game will be hit by lava though the detection of 3 status events showing minimal movement in a 5 x 5 location by lava spawning in the centre square of the location ( this can be triggered through an automated alert from Splunk to Phantom or trigger of console commands within Minecraft manually ).</p>
+</li>
+<li>
+<p>The Dashboard does not show location polls if you are sneaking with the poll is taken.</p>
+</li>
+<li>
+<p>If a player is over 2000 squares away then the Hunter has the opportunity to be teleported automatically to their last detected location</p>
+</li>
+<li>
+<p>Every 5 minutes, an increasing number of Mobs spawn close to the Hunted players to force continued movement</p>
+</li>
+<li>
+<p>At the 10 minute mark; a broadcast is sent out in the Minecraft world advising all Hunted players to attempt to reach a randomised location centralised between all Hunted and Hunter players</p>
+</li>
+</ul>
                 
               
               
