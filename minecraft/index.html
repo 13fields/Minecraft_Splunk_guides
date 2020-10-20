@@ -16,7 +16,7 @@
     
     
       
-        <title>Building Raspberry Pi Images - 13Fields GitHub Pages</title>
+        <title>Integrating Minecraft Clients - 13Fields GitHub Pages</title>
       
     
     
@@ -49,6 +49,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#why-minecraft-and-splunk" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -73,7 +78,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Building Raspberry Pi Images
+              Integrating Minecraft Clients
             
           </span>
         </div>
@@ -180,7 +185,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../minecraft/" title="Minecraft & Splunk" class="md-nav__link">
+    <a href="./" title="Minecraft & Splunk" class="md-nav__link">
       Minecraft & Splunk
     </a>
   </li>
@@ -207,10 +212,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
     
     <label class="md-nav__link" for="nav-2">
       Setup Guides
@@ -252,11 +259,20 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../minecraft/" title="Integrating Minecraft Clients" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+    <a href="./" title="Integrating Minecraft Clients" class="md-nav__link md-nav__link--active">
       Integrating Minecraft Clients
     </a>
+    
   </li>
 
         
@@ -343,12 +359,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
     
     <label class="md-nav__link" for="nav-4">
       Raspberry Pi Labs
@@ -378,18 +392,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-    <a href="./" title="Building Raspberry Pi Images" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../raspberry-pi-setup/" title="Building Raspberry Pi Images" class="md-nav__link">
       Building Raspberry Pi Images
     </a>
-    
   </li>
 
         
@@ -405,6 +412,21 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
@@ -414,9 +436,11 @@
                   
                 
                 
-                  <h1>Building Raspberry Pi Images</h1>
-                
-                <p>The Pi is still in the oven right now .... we'll let you know when it's full baked </p>
+                <h1 id="why-minecraft-and-splunk">Why Minecraft and Splunk</h1>
+<p>As shared in our Conf Talk ( link TBC coming soon here ) we talked about the importance of taking Data to the next generation and educating them on a platform and medium they understand. We want to use Minecraft to teach 8 - 18 year olds about the power of data and how we utilise this within IT Operation, Cyber Security and the ever expanding world of Machine Learning. </p>
+<p>From here, we built a framework, a scaffold, to start building our idea upon. And now you are here! Hi! </p>
+<p>On this Wiki we've put together all the pieces you need to get started on this journey with us and build your own capability using this framework and what we've done. We will be updating and developing this more and more; hopefully with your help too! </p>
+<p>So, humble beginnings... let's see where this goes! </p>
                 
               
               
@@ -435,7 +459,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../hidden-treasure/" title="Hidden Treasure" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../splunk-app-setup/" title="Splunk App & Onboarding" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -444,11 +468,25 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Hidden Treasure
+                Splunk App & Onboarding
               </div>
             </div>
           </a>
         
+        
+          <a href="../scenarios/" title="Overview" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Overview
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
         
       </nav>
     </div>
